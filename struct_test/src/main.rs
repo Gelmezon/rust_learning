@@ -45,5 +45,9 @@ enum Sex {
 fn main() {
     let student = Student::new(String::from("feitan"), 12,85,80,92,Sex::BOY);
     student.say();
-    println!("{:?}",student)
+    println!("{:?}",student);
+
+    let student2 = Student::new(String::from("Amy"), 14,90,65,99,Sex::GIRL);
+    student2.say();
+    println!("{:?}",student2);
 }
