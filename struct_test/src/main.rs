@@ -3,21 +3,27 @@
 struct Student{
     name:String,
     age:usize,
-    score:Score
+    score:Score,
+    sex:Sex
 }
 
 
 impl Student {
-    fn new(name:String,age:usize,chinese_score:usize,math_score:usize,english_score:usize)->Student{
+    fn new(name:String,age:usize,chinese_score:usize,math_score:usize,english_score:usize,sex:Sex)->Student{
          Student{
             name,
             age,
-            score:Score(chinese_score, math_score, english_score)
+            score:Score(chinese_score, math_score, english_score),
+            sex
         }
     }
 
     fn say(&self){
-        println!("My name is {}, my age is {}, my max sore is {}" , self.name , self.age,self.score.max_score())
+        println!("My name is {}, my age is {}, my max sore is {}" , self.name , self.age,self.score.max_score());
+        match self.sex {
+            Sex::BOY => println!("我是男孩"),
+            Sex::GIRL => println!("我是女孩")
+        }
     }
 }
 
@@ -31,9 +37,13 @@ impl Score {
         std::cmp::max(num, self.2)
     }
 }
+#[derive(Debug)]
+enum Sex {
+    BOY,GIRL
+}
 
 fn main() {
-    let student = Student::new(String::from("feitan"), 12,85,80,92);
+    let student = Student::new(String::from("feitan"), 12,85,80,92,Sex::BOY);
     student.say();
     println!("{:?}",student)
 }
