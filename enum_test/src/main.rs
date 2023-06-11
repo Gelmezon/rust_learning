@@ -1,3 +1,4 @@
+mod lib;
 fn main() {
     let s = Coin::One(20);
     let s2 = Coin::Five(10);
@@ -15,6 +16,9 @@ fn main() {
     let n1 = n.and(Some(1));
     let res = n1.unwrap_or(0);
     println!("res: {}", res);
+
+    lib::host_add_to_waitlist();
+    lib::host_seat_at_table();
 }
 
 /**
