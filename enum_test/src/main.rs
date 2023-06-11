@@ -1,4 +1,3 @@
-mod lib;
 fn main() {
     let s = Coin::One(20);
     let s2 = Coin::Five(10);
