@@ -7,8 +7,7 @@ fn main() {
     println!("The largest char is {}", r);
 
    let d =  Dog::new(String::from("jerry"));
-   println!("{}",d.eat());
-   println!("{}",d.sleep());
+   d.life()
 }
 
 fn largest<T: std::cmp::PartialOrd + Copy>(list: &[T]) -> T {
@@ -45,5 +44,8 @@ impl Dog {
 pub trait Animal {
     fn eat(&self)->String;
     fn sleep(&self)->String;
+    fn life(&self){
+        println!("{}",&self.eat());
+        println!("{}",&self.sleep());
+    }
 }
-
