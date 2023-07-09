@@ -11,11 +11,11 @@ impl CmdParam{
         args_iterr.next();
         let query = match  args_iterr.next(){
             Some(args) => args,
-            None => return Err("缺少搜索关键词".to_string()),
+            None => return Err("缺少参数".to_string()),
         }; 
         let file_path = match  args_iterr.next(){
             Some(args) => args,
-            None => return Err("缺少文件路径".to_string()),
+            None => return Err("缺少参数".to_string()),
         }; 
         return Ok(CmdParam{
             query,
