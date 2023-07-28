@@ -10,6 +10,11 @@ async fn echo(req_body: String) -> HttpResponse {
     HttpResponse::Ok().body(req_body)
 }
 
+#[get("/kokia")]
+async fn kokia() -> HttpResponse {
+    HttpResponse::Ok().body("Kokia")
+}
+
 async fn manual_hello() -> impl Responder {
     HttpResponse::Ok().body("Hey there!")
 }
@@ -21,9 +26,10 @@ async fn main() -> std::io::Result<()> {
         App::new()
             .service(hello)
             .service(echo)
+            .service(kokia)
             .route("/hey", web::get().to(manual_hello))
     })
-    .bind(("127.0.0.1", 8080))?
+    .bind(("127.0.0.1", 19000))?
     .run()
     .await
 }
