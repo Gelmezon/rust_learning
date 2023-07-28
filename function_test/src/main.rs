@@ -28,6 +28,12 @@ fn main() {
 
 
     println!("{} {}", r1.unwrap(), r2.unwrap());
+
+
+    let fn1 = |v| v * 2;
+    let fn2 = |v| v * 3;
+    let res = func_test(fn1, fn2)(2);
+    println!("res={}", res);
 }
 
 fn string_test(s: &String) -> String {
@@ -37,6 +43,12 @@ fn string_test(s: &String) -> String {
 fn string_test2(s: String) -> String {
     String::from("hello ").add(&s)
 }
+
+fn func_test(fn1:impl Fn(isize) -> isize , fn2:impl Fn(isize) -> isize) -> impl Fn(isize) -> isize {
+    move |i | fn1(fn2(i))
+}
+    
+
 
 struct LazyCompute {
     v: isize,
