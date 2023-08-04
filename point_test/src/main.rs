@@ -36,6 +36,13 @@ fn main() {
 
     let s = gen_static_str();
     println!("{}", s);
+
+
+    let x= 5;
+    let y = &x;
+
+    assert_eq!(5, x);
+    assert_eq!(5, *y);
 }
 
 trait Draw {
